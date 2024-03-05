@@ -17,7 +17,7 @@ func AddBranchTable(x *xorm.Engine) error {
 	type Branch struct {
 		ID            int64
 		RepoID        int64  `xorm:"UNIQUE(s)"`
-		Name          string `xorm:"UNIQUE(s) NOT NULL"`
+		Name          string `xorm:"VARCHAR(180) UNIQUE(s) NOT NULL"`
 		CommitID      string
 		CommitMessage string `xorm:"TEXT"`
 		PusherID      int64

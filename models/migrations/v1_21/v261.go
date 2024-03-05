@@ -14,7 +14,7 @@ func CreateVariableTable(x *xorm.Engine) error {
 		ID          int64              `xorm:"pk autoincr"`
 		OwnerID     int64              `xorm:"UNIQUE(owner_repo_name)"`
 		RepoID      int64              `xorm:"INDEX UNIQUE(owner_repo_name)"`
-		Name        string             `xorm:"UNIQUE(owner_repo_name) NOT NULL"`
+		Name        string             `xorm:"VARCHAR(180) UNIQUE(owner_repo_name) NOT NULL"`
 		Data        string             `xorm:"LONGTEXT NOT NULL"`
 		CreatedUnix timeutil.TimeStamp `xorm:"created NOT NULL"`
 		UpdatedUnix timeutil.TimeStamp `xorm:"updated"`

@@ -23,8 +23,8 @@ func CreateActionArtifactTable(x *xorm.Engine) error {
 		FileCompressedSize int64              // The size of the artifact in bytes after gzip compression
 		ContentEncoding    string             // The content encoding of the artifact
 		ArtifactPath       string             // The path to the artifact when runner uploads it
-		ArtifactName       string             `xorm:"UNIQUE(runid_name)"` // The name of the artifact when runner uploads it
-		Status             int64              `xorm:"index"`              // The status of the artifact
+		ArtifactName       string             `xorm:"VARCHAR(180) UNIQUE(runid_name)"` // The name of the artifact when runner uploads it
+		Status             int64              `xorm:"index"`                           // The status of the artifact
 		CreatedUnix        timeutil.TimeStamp `xorm:"created"`
 		UpdatedUnix        timeutil.TimeStamp `xorm:"updated index"`
 	}

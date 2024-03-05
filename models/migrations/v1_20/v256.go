@@ -12,9 +12,9 @@ func AddIsInternalColumnToPackage(x *xorm.Engine) error {
 		ID               int64  `xorm:"pk autoincr"`
 		OwnerID          int64  `xorm:"UNIQUE(s) INDEX NOT NULL"`
 		RepoID           int64  `xorm:"INDEX"`
-		Type             string `xorm:"UNIQUE(s) INDEX NOT NULL"`
+		Type             string `xorm:"VARCHAR(180) UNIQUE(s) INDEX NOT NULL"`
 		Name             string `xorm:"NOT NULL"`
-		LowerName        string `xorm:"UNIQUE(s) INDEX NOT NULL"`
+		LowerName        string `xorm:"VARCHAR(180) UNIQUE(s) INDEX NOT NULL"`
 		SemverCompatible bool   `xorm:"NOT NULL DEFAULT false"`
 		IsInternal       bool   `xorm:"NOT NULL DEFAULT false"`
 	}

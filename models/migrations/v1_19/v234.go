@@ -14,7 +14,7 @@ func CreatePackageCleanupRuleTable(x *xorm.Engine) error {
 		ID            int64              `xorm:"pk autoincr"`
 		Enabled       bool               `xorm:"INDEX NOT NULL DEFAULT false"`
 		OwnerID       int64              `xorm:"UNIQUE(s) INDEX NOT NULL DEFAULT 0"`
-		Type          string             `xorm:"UNIQUE(s) INDEX NOT NULL"`
+		Type          string             `xorm:"VARCHAR(180) UNIQUE(s) INDEX NOT NULL"`
 		KeepCount     int                `xorm:"NOT NULL DEFAULT 0"`
 		KeepPattern   string             `xorm:"NOT NULL DEFAULT ''"`
 		RemoveDays    int                `xorm:"NOT NULL DEFAULT 0"`

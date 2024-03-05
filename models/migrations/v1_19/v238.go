@@ -16,7 +16,7 @@ func AddUpdatedUnixToLFSMetaObject(x *xorm.Engine) error {
 	// LFSMetaObject stores metadata for LFS tracked files.
 	type LFSMetaObject struct {
 		ID           int64              `xorm:"pk autoincr"`
-		Oid          string             `json:"oid" xorm:"UNIQUE(s) INDEX NOT NULL"`
+		Oid          string             `json:"oid" xorm:"VARCHAR(180) UNIQUE(s) INDEX NOT NULL"`
 		Size         int64              `json:"size" xorm:"NOT NULL"`
 		RepositoryID int64              `xorm:"UNIQUE(s) INDEX NOT NULL"`
 		CreatedUnix  timeutil.TimeStamp `xorm:"created"`
